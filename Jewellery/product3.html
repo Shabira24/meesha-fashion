@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Meesha Fashion</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <link rel="stylesheet" href="D:\meesha fashion\style1.css">
+  <script src="D:\meesha fashion\buy1.js"></script>
+</head>
+<body style="font-family: 'Roboto', sans-serif;">
+<div class="container py-5">
+  <div class="row justify-content-center">
+    <div class="col-md-6 text-center">
+      <h2 class="mb-1">Panini Jewellery</h2>
+      <img src="../images/5.jpeg" alt="Panini Jewellery" class="img-fluid rounded mb-4" style="max-height: 550px;">
+      <p class="h5 text-danger">Price: ₹<span id="unit-price">213</span></p>
+      <ul>
+      <li class="text-muted mb-4">Durable and lightweight metal construction</p>
+      <li class="text-muted mb-4">Available in gold, silver, and rose gold tones</p>
+      <li class="text-muted mb-4">Rust-resistant and skin-friendly</p>
+
+      </ul>
+      <button class="btn btn-primary px-4">Add to Cart</button>
+      <button class="btn btn-success px-4" id="buy-now-btnn">Buy Now</button>
+            <!-- Size Selection Dropdown -->
+<div id="size-section" class="mt-3" style="display:none;">
+  <label for="product-size" class="form-label">Select Size:</label>
+  <select id="product-size" class="form-select form-select-sm" aria-label="Select Size">
+    <option value="1 year">2.2 inch</option>
+    <option value="2 year">2.4 inch</option>
+    <option value="3 year">2.6 inch</option>
+  </select>
+</div>
+
+        <!-- Quantity Section -->
+        <div id="quantity-section">
+          <div class="quantity-box mt-4">
+            <button class="btn btn-outline-secondary" id="decrease-btn">-</button>
+            <span id="quantity">1</span>
+            <button class="btn btn-outline-secondary" id="increase-btn">+</button>
+          </div>
+          <p class="mt-3 h5">Total Price: ₹<span id="total-price">213</span></p>
+
+          <!-- Payment Methods -->
+          <div class="mt-4 text-start">
+            <h6>Select Payment Method:</h6>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="paymentMethod" id="upi" value="UPI">
+              <label class="form-check-label" for="upi">UPI</label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="paymentMethod" id="card" value="Card">
+              <label class="form-check-label" for="card">Credit/Debit Card</label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="paymentMethod" id="cod" value="Cash on Delivery">
+              <label class="form-check-label" for="cod">Cash on Delivery</label>
+            </div>
+          </div>
+
+          <!-- Confirm Button -->
+          <button class="btn btn-dark mt-3" id="confirm-btnn">Confirm</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
