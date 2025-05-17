@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Meesha Fashion</title>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f8f9fa;
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      width: 80%;
+      margin: 20px auto;
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+    h2 {
+      text-align: center;
+      color: #333;
+    }
+    a.cart-link {
+      text-decoration: none;
+      color: inherit;
+    }
+    .cart-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px;
+      border-bottom: 1px solid #ddd;
+      transition: background-color 0.2s ease;
+    }
+    .cart-item:hover {
+      background-color: #f1f1f1;
+    }
+    .cart-item img {
+      width: 80px;
+      height: 80px;
+      object-fit: cover;
+      border-radius: 4px;
+    }
+    .item-details {
+      flex-grow: 1;
+      margin-left: 20px;
+    }
+    .item-details h4 {
+      margin: 0;
+      font-size: 16px;
+      color: #333;
+    }
+    .item-details p {
+      margin: 5px 0;
+      font-size: 14px;
+      color: #777;
+    }
+    .item-price {
+      font-size: 16px;
+      font-weight: bold;
+      color: #333;
+      text-align: right;
+    }
+    .stars {
+      color: #ccc;
+      font-size: 20px;
+      margin-left: 10px;
+      cursor: pointer;
+      display: inline-block;
+    }
+    .stars span {
+      margin-right: 3px;
+    }
+    .gold {
+      color: #f39c12;
+    }
+    .submit-feedback {
+      display: block;
+      width: 100%;
+      padding: 6px;
+      background-color: #3498db;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      font-size: 14px;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+    .submit-feedback:hover {
+      background-color: #2980b9;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <h2>My Orders</h2>
+
+  <!-- Cart Item 1 -->
+  <a href="BoyKids/product2.html" class="cart-link">
+    <div class="cart-item">
+      <img src="D:/meesha fashion/images/49.jpeg" alt="Product 1">
+      <div class="item-details">
+        <h4>Formal Mint Cotton Suit</h4>
+        <p>Free Delivery</p>
+        <p>Size: Free Size</p>
+        <p>Qty: 1</p>
+      </div>
+      <div class="item-price">
+        Give your feedback
+        <span class="stars" data-product="1">
+          <span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>
+        </span>
+        <button class="submit-feedback" data-product="1">Submit Feedback</button>
+      </div>
+    </div>
+  </a>
+
+  <!-- Cart Item 2 -->
+  <a href="Accessories/product1.html" class="cart-link">
+    <div class="cart-item">
+      <img src="D:/meesha fashion/images/72.jpeg" alt="Product 2">
+      <div class="item-details">
+        <h4>Elegant Classy Handbag</h4>
+        <p>Free Delivery</p>
+        <p>Size: XL</p>
+        <p>Qty: 1</p>
+      </div>
+      <div class="item-price">
+        Give your feedback
+        <span class="stars" data-product="2">
+          <span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>
+        </span>
+        <button class="submit-feedback" data-product="2">Submit Feedback</button>
+      </div>
+    </div>
+  </a>
+</div>
+
+<script>
+  $(document).ready(function () {
+    // Prevent link click when interacting with buttons or stars
+    $('.submit-feedback, .stars span').on('click', function (e) {
+      e.preventDefault();      // Stop anchor redirect
+      e.stopPropagation();     // Stop bubbling to anchor
+    });
+
+    // Star rating logic
+    $('.stars span').on('click', function () {
+      const $this = $(this);
+      const $allStars = $this.parent().find('span');
+      const index = $this.index();
+
+      $allStars.removeClass('gold');
+      $allStars.each(function (i) {
+        if (i <= index) {
+          $(this).addClass('gold');
+        }
+      });
+    });
+
+    // Submit feedback
+    $('.submit-feedback').on('click', function () {
+      const productID = $(this).data('product');
+      const stars = $(`.stars[data-product="${productID}"] .gold`).length;
+
+      alert(`Feedback submitted for Product ${productID}: ${stars} star(s)`);
+    });
+  });
+</script>
+
+</body>
+</html>

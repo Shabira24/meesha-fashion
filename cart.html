@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Meesha Fashion</title>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f8f9fa;
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      width: 80%;
+      margin: 20px auto;
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+    h2 {
+      text-align: center;
+      color: #333;
+    }
+    a.cart-link {
+      text-decoration: none;
+      color: inherit;
+      display: block;
+    }
+    .cart-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px;
+      border-bottom: 1px solid #ddd;
+    }
+    .cart-item img {
+      width: 80px;
+      height: 80px;
+      object-fit: cover;
+      border-radius: 4px;
+    }
+    .item-details {
+      flex-grow: 1;
+      margin-left: 20px;
+    }
+    .item-details h4 {
+      margin: 0;
+      font-size: 16px;
+      color: #333;
+    }
+    .item-details p {
+      margin: 5px 0;
+      font-size: 14px;
+      color: #777;
+    }
+    .item-price {
+      font-size: 16px;
+      font-weight: bold;
+      color: #333;
+    }
+    .quantity {
+      display: flex;
+      align-items: center;
+    }
+    .quantity input {
+      width: 40px;
+      padding: 5px;
+      text-align: center;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      margin: 0 5px;
+    }
+    .remove-btn {
+      background-color: #e74c3c;
+      color: white;
+      border: none;
+      padding: 5px 10px;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    .remove-btn:hover {
+      background-color: #c0392b;
+    }
+    .total {
+      display: flex;
+      justify-content: flex-end;
+      font-size: 18px;
+      font-weight: bold;
+      margin-top: 20px;
+      color: #333;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <h2>Shopping Cart</h2>
+
+  <a href="Slippers/product4.html" class="cart-link">
+    <div class="cart-item">
+      <img src="D:/meesha fashion/images/59.jpeg" alt="Product 1">
+      <div class="item-details">
+        <h4>Latest Flipflop</h4>
+        <p>Free Delivery</p>
+      </div>
+      <div class="item-price" data-price="422">₹422</div>
+      <div class="quantity">
+        <input type="number" value="1" min="1">
+      </div>
+      <button class="remove-btn">Remove</button>
+    </div>
+  </a>
+
+  <a href="Electronics/product1.html" class="cart-link">
+    <div class="cart-item">
+      <img src="D:/meesha fashion/images/67.jpeg" alt="Product 2">
+      <div class="item-details">
+        <h4>boAt Rockerz 450 On-Ear Bluetooth Headphone</h4>
+        <p>Free Delivery</p>
+      </div>
+      <div class="item-price" data-price="893">₹893</div>
+      <div class="quantity">
+        <input type="number" value="1" min="1">
+      </div>
+      <button class="remove-btn">Remove</button>
+    </div>
+  </a>
+
+  <div class="total">
+    <span id="total-amount">Total: ₹0</span>
+  </div>
+</div>
+
+<script>
+  $(document).ready(function () {
+    function updateTotal() {
+      let total = 0;
+      $('.cart-item').each(function () {
+        let price = parseFloat($(this).find('.item-price').data('price'));
+        let qty = parseInt($(this).find('input[type="number"]').val());
+        total += price * qty;
+      });
+      $('#total-amount').text(`Total: ₹${total}`);
+    }
+
+    // Initial total update
+    updateTotal();
+
+    // Quantity change
+    $('.quantity input').on('input', function () {
+      updateTotal();
+    });
+
+    // Prevent anchor link from firing when interacting with input or button
+    $('.quantity input, .remove-btn').on('click', function (e) {
+      e.stopPropagation();
+    });
+
+    // Remove item
+    $('.remove-btn').on('click', function (e) {
+      e.preventDefault();
+      $(this).closest('.cart-link').remove();
+      updateTotal();
+    });
+  });
+</script>
+
+</body>
+</html>

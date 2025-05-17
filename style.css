@@ -1,0 +1,46 @@
+.product-card {
+  height: 300px; /* Fixed height for all cards */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  overflow: hidden;
+  margin-bottom: 20px;
+  position: relative;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.product-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.product-card img {
+  object-fit: cover; /* Ensures the image covers the area without distortion */
+  height: 250px; /* Fixed height for the image */
+  width: 100%; /* Ensures the image spans the full width */
+}
+
+.product-card .p-3 {
+  flex-grow: 1; /* Allows the description area to take up remaining space */
+  padding-top: 0.5rem; /* Reduces top padding */
+}
+
+.product-card .card-title {
+  margin-bottom: 0.25rem; /* Reduces bottom margin */
+  font-size: 1rem; /* Adjusts font size */
+  white-space: nowrap; /* Prevents text from wrapping */
+  overflow: hidden; /* Hides overflow text */
+  text-overflow: ellipsis; /* Adds ellipsis (...) for overflow text */
+}
+ .navbar-img {
+    width: 30px !important;
+    height: 30px !important;
+    object-fit: cover;
+  }
+  .navbar-imgs {
+    width: 40px !important;
+    height: 40px !important;
+    object-fit: cover;
+  }
